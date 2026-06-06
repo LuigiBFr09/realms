@@ -9,18 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
-  --c-primary:  #00e566;
-  --c-accent:   #00cfff;
-  --c-gold:     #00ff7f;
-  --c-dark:     #030b10;
-  --c-surface:  #071520;
-  --c-border:   rgba(0,207,255,0.2);
-  --c-text:     #b8e8d8;
-  --c-muted:    #3a7060;
-  --c-danger:   #ff4466;
-  --font-display: 'Cinzel Decorative', serif;
-  --font-title:   'Cinzel', serif;
-  --font-body:    'Crimson Pro', serif;
+  --c-primary:#00e566;--c-accent:#00cfff;--c-gold:#00ff7f;
+  --c-dark:#030b10;--c-surface:#071520;--c-border:rgba(0,207,255,0.2);
+  --c-text:#b8e8d8;--c-muted:#3a7060;--c-danger:#ff4466;
+  --font-display:'Cinzel Decorative',serif;--font-title:'Cinzel',serif;--font-body:'Crimson Pro',serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -135,7 +127,7 @@ section{padding:90px 0;position:relative;z-index:1;}
 /* MEMBROS */
 .members-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;}
 .member-card{text-align:center;padding:24px 16px;cursor:pointer;position:relative;}
-.member-avatar{width:64px;height:64px;margin:0 auto 12px;border-radius:8px;overflow:hidden;border:2px solid var(--c-border);transition:border-color .3s,box-shadow .3s;position:relative;}
+.member-avatar{width:64px;height:64px;margin:0 auto 12px;border-radius:8px;overflow:hidden;border:2px solid var(--c-border);transition:border-color .3s,box-shadow .3s;}
 .member-card:hover .member-avatar{border-color:var(--c-primary);box-shadow:0 0 20px rgba(0,229,102,0.4);}
 .member-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
 .member-avatar-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:linear-gradient(135deg,rgba(0,229,102,0.15),rgba(0,207,255,0.15));}
@@ -148,7 +140,7 @@ section{padding:90px 0;position:relative;z-index:1;}
 .ranking-list{display:flex;flex-direction:column;gap:10px;margin-top:40px;}
 .ranking-item{display:flex;align-items:center;gap:16px;padding:14px 20px;}
 .ranking-pos{font-family:var(--font-display);font-size:1.2rem;color:var(--c-border);min-width:32px;text-align:center;}
-.ranking-pos.gold{color:#ffd966;} .ranking-pos.silver{color:#b0c4d8;} .ranking-pos.bronze{color:#c87941;}
+.ranking-pos.gold{color:#ffd966;}.ranking-pos.silver{color:#b0c4d8;}.ranking-pos.bronze{color:#c87941;}
 .ranking-avatar{width:36px;height:36px;border-radius:5px;overflow:hidden;border:1px solid var(--c-border);}
 .ranking-avatar img{width:100%;height:100%;object-fit:cover;}
 .ranking-name{font-family:var(--font-title);font-size:.82rem;color:#c8f0dc;flex:1;}
@@ -163,7 +155,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
-/* ══ MODAL BASE ══ */
+/* MODAL */
 .modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.78);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s;}
 .modal-overlay.open{opacity:1;pointer-events:all;}
 .modal{background:rgba(7,18,30,0.98);border:1px solid var(--c-border);border-radius:8px;padding:36px 40px;width:100%;max-width:460px;position:relative;transform:translateY(20px);transition:transform .25s;max-height:90vh;overflow-y:auto;}
@@ -175,7 +167,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
 .modal-tabs{display:flex;gap:0;margin-bottom:28px;border-bottom:1px solid var(--c-border);}
 .modal-tab{font-family:var(--font-title);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;padding:8px 20px;cursor:pointer;color:var(--c-muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;background:none;border-top:none;border-left:none;border-right:none;}
 .modal-tab.active{color:var(--c-accent);border-bottom-color:var(--c-accent);}
-.modal-pane{display:none;} .modal-pane.active{display:block;}
+.modal-pane{display:none;}.modal-pane.active{display:block;}
 
 /* FORM */
 .form-group{margin-bottom:16px;}
@@ -188,10 +180,18 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
 .form-btn:hover{background:rgba(0,229,102,0.2);box-shadow:0 0 20px rgba(0,229,102,0.2);}
 .form-btn:disabled{opacity:.4;cursor:not-allowed;}
 .form-btn-sm{width:auto;padding:7px 16px;font-size:.58rem;margin-top:0;}
-.form-btn-danger{border-color:var(--c-danger);color:var(--c-danger);background:rgba(255,68,102,0.05);}
-.form-btn-danger:hover{background:rgba(255,68,102,0.15);}
 .form-msg{font-family:var(--font-title);font-size:.62rem;letter-spacing:.1em;text-align:center;margin-top:14px;min-height:1.4em;}
-.form-msg.ok{color:var(--c-primary);} .form-msg.err{color:var(--c-danger);}
+.form-msg.ok{color:var(--c-primary);}.form-msg.err{color:var(--c-danger);}
+
+/* DIVIDER */
+.auth-divider{display:flex;align-items:center;gap:12px;margin:18px 0;}
+.auth-divider-line{flex:1;height:1px;background:var(--c-border);}
+.auth-divider-text{font-family:var(--font-title);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c-muted);}
+
+/* BOTÃO GOOGLE */
+.btn-google{width:100%;padding:11px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);border-radius:4px;font-family:var(--font-title);font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:#c8f0dc;cursor:pointer;transition:background .2s,border-color .2s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px;}
+.btn-google:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.25);}
+.btn-google svg{width:18px;height:18px;flex-shrink:0;}
 
 /* AVATAR UPLOAD */
 .avatar-upload-wrap{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
@@ -201,7 +201,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
 .avatar-upload-btn:hover{border-color:var(--c-accent);}
 #avatar-file-input{display:none;}
 
-/* MODAL PERFIL */
+/* PERFIL */
 .profile-modal{max-width:540px;}
 .profile-header{display:flex;gap:20px;align-items:flex-start;margin-bottom:24px;}
 .profile-avatar{width:88px;height:88px;border-radius:10px;overflow:hidden;border:2px solid var(--c-border);flex-shrink:0;}
@@ -222,11 +222,9 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
 .like-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--c-border);border-radius:4px;background:none;cursor:pointer;font-family:var(--font-title);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c-muted);transition:border-color .2s,color .2s;}
 .like-btn:hover,.like-btn.liked{border-color:var(--c-accent);color:var(--c-accent);}
 .like-btn .heart{font-size:1rem;}
-
-/* LAST SEEN */
 .last-seen-tag{font-family:var(--font-title);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c-muted);margin-top:4px;}
 
-/* PAINEL ADMIN */
+/* ADMIN */
 #admin-panel{position:fixed;inset:0;z-index:600;background:rgba(0,0,0,0.88);backdrop-filter:blur(10px);display:none;flex-direction:column;align-items:center;padding:60px 20px 30px;overflow-y:auto;}
 #admin-panel.open{display:flex;}
 .admin-box{background:rgba(7,18,30,0.98);border:1px solid var(--c-border);border-radius:8px;padding:36px 40px;width:100%;max-width:700px;}
@@ -237,7 +235,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
 .admin-tabs{display:flex;gap:0;margin-bottom:24px;border-bottom:1px solid var(--c-border);}
 .admin-tab{font-family:var(--font-title);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;padding:8px 18px;cursor:pointer;color:var(--c-muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;background:none;border-top:none;border-left:none;border-right:none;}
 .admin-tab.active{color:var(--c-accent);border-bottom-color:var(--c-accent);}
-.admin-pane{display:none;} .admin-pane.active{display:block;}
+.admin-pane{display:none;}.admin-pane.active{display:block;}
 .pending-list{display:flex;flex-direction:column;gap:10px;}
 .pending-item{display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(0,207,255,0.03);border:1px solid var(--c-border);border-radius:5px;}
 .pending-name{font-family:var(--font-title);font-size:.85rem;color:#c8f0dc;flex:1;}
@@ -253,12 +251,14 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
 .admin-role-select{padding:4px 8px;background:rgba(0,207,255,0.04);border:1px solid var(--c-border);border-radius:3px;color:#c8f0dc;font-family:var(--font-title);font-size:.6rem;outline:none;}
 .admin-login{display:flex;flex-direction:column;gap:16px;max-width:300px;margin:0 auto;}
 
+/* badge método de login */
+.login-method-badge{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-title);font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--c-muted);margin-top:4px;}
+
 @media(max-width:768px){
-  .topbar-timer{padding:6px 16px;gap:12px;} .timer-label{display:none;}
-  .topbar-nav{padding:10px 20px;} .nav-logo{font-size:.52rem;} .nav-links{gap:10px;} .nav-links a{font-size:.5rem;}
-  .wrap{padding:0 20px;} .card{padding:18px;} .modal{padding:24px 20px;} .admin-box{padding:24px 20px;}
+  .topbar-timer{padding:6px 16px;gap:12px;}.timer-label{display:none;}
+  .topbar-nav{padding:10px 20px;}.nav-logo{font-size:.52rem;}.nav-links{gap:10px;}.nav-links a{font-size:.5rem;}
+  .wrap{padding:0 20px;}.card{padding:18px;}.modal{padding:24px 20px;}.admin-box{padding:24px 20px;}
   .profile-header{flex-direction:column;align-items:center;text-align:center;}
-  .profile-stats{grid-template-columns:repeat(3,1fr);}
 }
 </style>
 </head>
@@ -332,16 +332,26 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
     <button class="modal-close" onclick="closeModal('auth-modal')">✕</button>
     <div class="modal-title">Membros</div>
     <div class="modal-sub">Renascimento III · 2026</div>
+
     <div class="modal-tabs">
       <button class="modal-tab active" onclick="switchTab('login')">Entrar</button>
       <button class="modal-tab" onclick="switchTab('register')">Cadastrar</button>
     </div>
+
+    <!-- LOGIN -->
     <div class="modal-pane active" id="pane-login">
       <div class="form-group"><label class="form-label">Nickname</label><input class="form-input" id="login-nick" type="text" placeholder="Seu nickname no Minecraft" autocomplete="off"></div>
       <div class="form-group"><label class="form-label">Senha</label><input class="form-input" id="login-pass" type="password" placeholder="••••••••"></div>
       <button class="form-btn" id="login-btn" onclick="doLogin()">Entrar</button>
+      <div class="auth-divider"><div class="auth-divider-line"></div><span class="auth-divider-text">ou</span><div class="auth-divider-line"></div></div>
+      <button class="btn-google" onclick="doGoogleAuth()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Continuar com Google
+      </button>
       <div class="form-msg" id="login-msg"></div>
     </div>
+
+    <!-- CADASTRO -->
     <div class="modal-pane" id="pane-register">
       <div class="form-group"><label class="form-label">Nickname</label><input class="form-input" id="reg-nick" type="text" placeholder="Nickname exato no Minecraft" autocomplete="off"></div>
       <div class="form-group"><label class="form-label">Senha</label><input class="form-input" id="reg-pass" type="password" placeholder="Mínimo 6 caracteres"></div>
@@ -357,18 +367,44 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
         </select>
       </div>
       <button class="form-btn" id="reg-btn" onclick="doRegister()">Solicitar entrada</button>
+      <div class="auth-divider"><div class="auth-divider-line"></div><span class="auth-divider-text">ou</span><div class="auth-divider-line"></div></div>
+      <button class="btn-google" onclick="doGoogleAuth()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Cadastrar com Google
+      </button>
       <div class="form-msg" id="reg-msg"></div>
     </div>
   </div>
 </div>
 
-<!-- MODAL MEU PERFIL (edição) -->
+<!-- MODAL: COMPLETAR PERFIL GOOGLE (nickname + cargo) -->
+<div class="modal-overlay" id="google-setup-modal">
+  <div class="modal">
+    <div class="modal-title">Quase lá</div>
+    <div class="modal-sub">Informe seu nickname do Minecraft</div>
+    <div class="form-group"><label class="form-label">Nickname no Minecraft</label><input class="form-input" id="gsetup-nick" type="text" placeholder="Seu nick exato no Bedrock" autocomplete="off"></div>
+    <div class="form-group">
+      <label class="form-label">Cargo solicitado</label>
+      <select class="form-select" id="gsetup-role">
+        <option value="">Selecione...</option>
+        <option value="Fundador">Fundador</option>
+        <option value="Prefeito">Prefeito</option>
+        <option value="Membro">Membro</option>
+        <option value="Construtor">Construtor</option>
+        <option value="Explorador">Explorador</option>
+      </select>
+    </div>
+    <button class="form-btn" onclick="submitGoogleSetup()">Solicitar entrada</button>
+    <div class="form-msg" id="gsetup-msg"></div>
+  </div>
+</div>
+
+<!-- MODAL MEU PERFIL -->
 <div class="modal-overlay" id="my-profile-modal">
   <div class="modal">
     <button class="modal-close" onclick="closeModal('my-profile-modal')">✕</button>
     <div class="modal-title">Meu Perfil</div>
     <div class="modal-sub">Editar informações</div>
-
     <div class="avatar-upload-wrap">
       <div class="avatar-preview"><img id="my-avatar-preview" src="" alt="Avatar"></div>
       <div>
@@ -378,7 +414,6 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
         <div style="font-family:var(--font-title);font-size:.52rem;color:var(--c-muted);margin-top:6px;">ou usa skin do MC automaticamente</div>
       </div>
     </div>
-
     <div class="form-group"><label class="form-label">Bio curta</label><textarea class="form-textarea" id="profile-bio" placeholder="Uma frase sobre você no realm..." maxlength="120"></textarea></div>
     <div class="form-group"><label class="form-label">Realm favorito</label>
       <select class="form-select" id="profile-fav-realm">
@@ -390,7 +425,6 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
         <option value="Destino">Destino</option>
       </select>
     </div>
-
     <div style="margin-bottom:16px;">
       <div class="form-label" style="margin-bottom:10px;">Minhas construções</div>
       <div id="my-builds-list" style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px;"></div>
@@ -399,13 +433,12 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
         <button class="form-btn form-btn-sm" onclick="addBuild()">+ Add</button>
       </div>
     </div>
-
     <button class="form-btn" onclick="saveProfile()">Salvar perfil</button>
     <div class="form-msg" id="profile-msg"></div>
   </div>
 </div>
 
-<!-- MODAL PERFIL DE OUTRO MEMBRO -->
+<!-- MODAL VER PERFIL -->
 <div class="modal-overlay" id="view-profile-modal">
   <div class="modal profile-modal">
     <button class="modal-close" onclick="closeModal('view-profile-modal')">✕</button>
@@ -416,6 +449,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
         <div class="profile-role-badge" id="vp-role"></div>
         <div class="profile-bio" id="vp-bio"></div>
         <div class="last-seen-tag" id="vp-lastseen"></div>
+        <div class="login-method-badge" id="vp-method"></div>
       </div>
     </div>
     <div class="profile-stats">
@@ -470,7 +504,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
   </div>
 </div>
 
-<!-- ══ CONTEÚDO ══ -->
+<!-- CONTEÚDO -->
 <section id="hero">
   <div class="wrap">
     <div class="realm-logo-wrap">
@@ -531,7 +565,7 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
   <div class="wrap">
     <p class="section-label reveal">Do realm</p>
     <h2 class="section-title reveal">Construções</h2>
-    <div class="builds-grid" id="global-builds-grid">
+    <div class="builds-grid">
       <div class="card build-card reveal">
         <div class="build-img-placeholder">?</div>
         <div class="build-info"><div class="build-name">Indefinido</div><div class="build-author">por ???</div></div>
@@ -583,8 +617,6 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
     <p class="section-label reveal">Quem joga</p>
     <h2 class="section-title reveal">Membros</h2>
     <div class="members-grid" id="members-grid"><div class="member-empty">Carregando...</div></div>
-
-    <!-- Ranking -->
     <div style="margin-top:60px;">
       <p class="section-label reveal">Mais curtidos</p>
       <h3 style="font-family:var(--font-display);font-size:1.3rem;color:#d8f4e8;margin-bottom:20px;" class="reveal">Ranking</h3>
@@ -600,82 +632,75 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
   </div>
 </footer>
 
-<!-- ════════════════════════════
-     FIREBASE + LÓGICA COMPLETA
-     ════════════════════════════ -->
 <script type="module">
 import { initializeApp }                          from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
 import { getAuth, createUserWithEmailAndPassword,
          signInWithEmailAndPassword, signOut,
+         GoogleAuthProvider, signInWithPopup,
          onAuthStateChanged }                     from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 import { getFirestore, collection, doc, setDoc,
          getDoc, getDocs, updateDoc, deleteDoc,
          onSnapshot, query, where,
-         arrayUnion, arrayRemove, increment }     from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+         arrayUnion, arrayRemove }                from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 import { getStorage, ref, uploadBytes,
          getDownloadURL }                         from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js';
 
-/* ── CONFIG ── */
 const firebaseConfig = {
   apiKey:"AIzaSyAKkW0GHYrzeKm1I9MTeyBuLPwRO554XH4",
   authDomain:"realms-4cf72.firebaseapp.com",
   projectId:"realms-4cf72",
   storageBucket:"realms-4cf72.firebasestorage.app",
   messagingSenderId:"504211787857",
-  appId:"1:504211787857:web:ac1fd15e5457ee7dfba870",
-  measurementId:"G-NS022Z5XN3"
+  appId:"1:504211787857:web:ac1fd15e5457ee7dfba870"
 };
 const ADMIN_PASSWORD = "admin2026realm"; // ← troque antes de publicar
-const REALM_START    = new Date('2026-06-06T14:00:00');
 
-const app     = initializeApp(firebaseConfig);
-const auth    = getAuth(app);
-const db      = getFirestore(app);
-const storage = getStorage(app);
+const app      = initializeApp(firebaseConfig);
+const auth     = getAuth(app);
+const db       = getFirestore(app);
+const storage  = getStorage(app);
+const googleProvider = new GoogleAuthProvider();
 
 let currentUser     = null;
 let currentUserData = null;
 let viewingUid      = null;
-let pendingAvatar   = null; // File object para upload
+let pendingAvatar   = null;
+let pendingGoogleUser = null; // usuário Google aguardando setup
 
-/* ── HELPERS ── */
-function nickToEmail(nick){ return nick.toLowerCase().replace(/[^a-z0-9]/g,'')+'@realm.local'; }
+/* HELPERS */
+function nickToEmail(n){ return n.toLowerCase().replace(/[^a-z0-9]/g,'')+'@realm.local'; }
 function roleEmoji(r){ return {Fundador:'👑',Prefeito:'🏛️',Membro:'⚔️',Construtor:'🏗️',Explorador:'🧭'}[r]||'🧑'; }
 function daysSince(ts){ return Math.floor((Date.now()-ts)/86400000); }
 function timeAgo(ts){
   const m=Math.floor((Date.now()-ts)/60000);
   if(m<2) return 'agora mesmo';
-  if(m<60) return `${m} min atrás`;
+  if(m<60) return `${m}min atrás`;
   const h=Math.floor(m/60);
   if(h<24) return `${h}h atrás`;
   return `${Math.floor(h/24)}d atrás`;
 }
-function avatarUrl(data){
-  return data.avatarUrl || `https://mc-heads.net/avatar/${encodeURIComponent(data.nickname)}/64`;
+function avatarUrl(d){
+  return d.avatarUrl || `https://mc-heads.net/avatar/${encodeURIComponent(d.nickname)}/64`;
 }
 
-/* ── MODAL HELPERS ── */
+/* MODAIS */
 window.closeModal = id => document.getElementById(id).classList.remove('open');
 window.openAuthModal = () => document.getElementById('auth-modal').classList.add('open');
-
 window.switchTab = tab => {
   document.querySelectorAll('.modal-tab').forEach((t,i)=>t.classList.toggle('active',tab==='login'?i===0:i===1));
   document.getElementById('pane-login').classList.toggle('active',tab==='login');
   document.getElementById('pane-register').classList.toggle('active',tab==='register');
 };
 
-/* ── RENDER MEMBROS ── */
+/* RENDER */
 function renderMembers(docs){
-  const grid = document.getElementById('members-grid');
+  const grid=document.getElementById('members-grid');
   if(!docs.length){ grid.innerHTML='<div class="member-empty">Nenhum membro ainda.</div>'; document.getElementById('stat-members').textContent='0'; return; }
-  document.getElementById('stat-members').textContent = docs.length;
-  grid.innerHTML = docs.map(d=>{
-    const m=d.data(), uid=d.id;
-    const likes = (m.likedBy||[]).length;
+  document.getElementById('stat-members').textContent=docs.length;
+  grid.innerHTML=docs.map(d=>{
+    const m=d.data(),uid=d.id,likes=(m.likedBy||[]).length;
     return `<div class="card member-card" onclick="openViewProfile('${uid}')">
-      <div class="member-avatar">
-        <img src="${avatarUrl(m)}" alt="${m.nickname}" onerror="this.parentElement.innerHTML='<div class=&quot;member-avatar-placeholder&quot;>${roleEmoji(m.role)}</div>'">
-      </div>
+      <div class="member-avatar"><img src="${avatarUrl(m)}" alt="${m.nickname}" onerror="this.parentElement.innerHTML='<div class=&quot;member-avatar-placeholder&quot;>${roleEmoji(m.role)}</div>'"></div>
       <div class="member-name">${m.nickname}</div>
       <div class="member-role">${m.role}</div>
       <div class="member-likes">♡ ${likes}</div>
@@ -685,38 +710,43 @@ function renderMembers(docs){
 }
 
 function renderRanking(docs){
-  const sorted = [...docs].sort((a,b)=>((b.data().likedBy||[]).length)-((a.data().likedBy||[]).length)).slice(0,5);
-  const colors = ['gold','silver','bronze','',''];
-  document.getElementById('ranking-list').innerHTML = sorted.map((d,i)=>{
-    const m=d.data(), likes=(m.likedBy||[]).length;
+  const sorted=[...docs].sort((a,b)=>((b.data().likedBy||[]).length)-((a.data().likedBy||[]).length)).slice(0,5);
+  const colors=['gold','silver','bronze','',''];
+  document.getElementById('ranking-list').innerHTML=sorted.map((d,i)=>{
+    const m=d.data(),likes=(m.likedBy||[]).length;
     return `<div class="card ranking-item">
       <div class="ranking-pos ${colors[i]}">${i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1}</div>
-      <div class="ranking-avatar"><img src="${avatarUrl(m)}" onerror="this.src=''" alt="${m.nickname}"></div>
-      <div class="ranking-name">${m.nickname} <span style="font-size:.6rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.1em;">${m.role}</span></div>
+      <div class="ranking-avatar"><img src="${avatarUrl(m)}" alt="${m.nickname}"></div>
+      <div class="ranking-name">${m.nickname} <span style="font-size:.6rem;color:var(--c-muted);">${m.role}</span></div>
       <div class="ranking-score">♡ ${likes}</div>
     </div>`;
   }).join('');
 }
 
-/* ── OUVIR MEMBROS EM TEMPO REAL ── */
-const approvedQ = query(collection(db,'members'),where('status','==','approved'));
-onSnapshot(approvedQ, snap=>{
+/* TEMPO REAL */
+const approvedQ=query(collection(db,'members'),where('status','==','approved'));
+onSnapshot(approvedQ,snap=>{
   renderMembers(snap.docs);
-  // atualiza last seen do usuário logado
-  if(currentUser){
-    updateDoc(doc(db,'members',currentUser.uid),{lastSeen:Date.now()}).catch(()=>{});
-  }
+  if(currentUser) updateDoc(doc(db,'members',currentUser.uid),{lastSeen:Date.now()}).catch(()=>{});
 });
 
-/* ── AUTH STATE ── */
-onAuthStateChanged(auth, async user=>{
-  currentUser = user;
-  const wrap = document.getElementById('nav-auth-wrap');
+/* AUTH STATE */
+onAuthStateChanged(auth,async user=>{
+  currentUser=user;
+  const wrap=document.getElementById('nav-auth-wrap');
   if(user){
-    const snap = await getDoc(doc(db,'members',user.uid));
-    currentUserData = snap.exists() ? snap.data() : null;
+    const snap=await getDoc(doc(db,'members',user.uid));
+    currentUserData=snap.exists()?snap.data():null;
+
+    // usuário Google novo: ainda não tem doc → abre setup
+    if(!snap.exists() && user.providerData[0]?.providerId==='google.com'){
+      pendingGoogleUser=user;
+      closeModal('auth-modal');
+      document.getElementById('google-setup-modal').classList.add('open');
+      return;
+    }
+
     if(currentUserData){
-      // atualiza last seen
       await updateDoc(doc(db,'members',user.uid),{lastSeen:Date.now()});
       wrap.innerHTML=`<div class="nav-user">
         <span class="nav-user-name">${currentUserData.nickname}</span>
@@ -725,13 +755,39 @@ onAuthStateChanged(auth, async user=>{
       </div>`;
     }
   } else {
-    currentUserData = null;
+    currentUserData=null;
     wrap.innerHTML=`<button class="nav-auth-btn" onclick="openAuthModal()">Entrar</button>`;
   }
 });
 
-/* ── CADASTRO ── */
-window.doRegister = async()=>{
+/* LOGIN EMAIL */
+window.doLogin=async()=>{
+  const nick=document.getElementById('login-nick').value.trim();
+  const pass=document.getElementById('login-pass').value;
+  const msg=document.getElementById('login-msg');
+  const btn=document.getElementById('login-btn');
+  if(!nick||!pass){msg.className='form-msg err';msg.textContent='Preencha todos os campos.';return;}
+  btn.disabled=true;msg.className='form-msg';msg.textContent='Entrando...';
+  try{
+    const cred=await signInWithEmailAndPassword(auth,nickToEmail(nick),pass);
+    const snap=await getDoc(doc(db,'members',cred.user.uid));
+    if(!snap.exists()||snap.data().status!=='approved'){
+      await signOut(auth);
+      msg.className='form-msg err';
+      msg.textContent=snap.data()?.status==='pending'?'Cadastro aguardando aprovação.':'Conta não encontrada.';
+      btn.disabled=false;return;
+    }
+    msg.className='form-msg ok';msg.textContent='Bem-vindo!';
+    setTimeout(()=>closeModal('auth-modal'),700);
+  }catch(e){
+    msg.className='form-msg err';
+    msg.textContent=(e.code==='auth/invalid-credential'||e.code==='auth/user-not-found')?'Nickname ou senha incorretos.':'Erro: '+e.message;
+  }
+  btn.disabled=false;
+};
+
+/* CADASTRO EMAIL */
+window.doRegister=async()=>{
   const nick=document.getElementById('reg-nick').value.trim();
   const pass=document.getElementById('reg-pass').value;
   const role=document.getElementById('reg-role').value;
@@ -739,16 +795,17 @@ window.doRegister = async()=>{
   const btn=document.getElementById('reg-btn');
   if(!nick||!pass||!role){msg.className='form-msg err';msg.textContent='Preencha todos os campos.';return;}
   if(pass.length<6){msg.className='form-msg err';msg.textContent='Senha mínima: 6 caracteres.';return;}
-  btn.disabled=true; msg.className='form-msg'; msg.textContent='Criando conta...';
+  btn.disabled=true;msg.className='form-msg';msg.textContent='Criando conta...';
   try{
     const cred=await createUserWithEmailAndPassword(auth,nickToEmail(nick),pass);
     await setDoc(doc(db,'members',cred.user.uid),{
-      nickname:nick, role, status:'pending', uid:cred.user.uid,
-      createdAt:Date.now(), lastSeen:Date.now(),
-      likedBy:[], builds:[], bio:'', favRealm:'', avatarUrl:''
+      nickname:nick,role,status:'pending',uid:cred.user.uid,
+      loginMethod:'email',
+      createdAt:Date.now(),lastSeen:Date.now(),
+      likedBy:[],builds:[],bio:'',favRealm:'',avatarUrl:''
     });
     await signOut(auth);
-    msg.className='form-msg ok'; msg.textContent='Cadastro enviado! Aguarde aprovação.';
+    msg.className='form-msg ok';msg.textContent='Cadastro enviado! Aguarde aprovação.';
     ['reg-nick','reg-pass'].forEach(id=>document.getElementById(id).value='');
     document.getElementById('reg-role').value='';
   }catch(e){
@@ -758,204 +815,219 @@ window.doRegister = async()=>{
   btn.disabled=false;
 };
 
-/* ── LOGIN ── */
-window.doLogin = async()=>{
-  const nick=document.getElementById('login-nick').value.trim();
-  const pass=document.getElementById('login-pass').value;
-  const msg=document.getElementById('login-msg');
-  const btn=document.getElementById('login-btn');
-  if(!nick||!pass){msg.className='form-msg err';msg.textContent='Preencha todos os campos.';return;}
-  btn.disabled=true; msg.className='form-msg'; msg.textContent='Entrando...';
+/* LOGIN / CADASTRO GOOGLE */
+window.doGoogleAuth=async()=>{
+  const loginMsg=document.getElementById('login-msg');
   try{
-    const cred=await signInWithEmailAndPassword(auth,nickToEmail(nick),pass);
-    const snap=await getDoc(doc(db,'members',cred.user.uid));
-    if(!snap.exists()||snap.data().status!=='approved'){
-      await signOut(auth);
-      msg.className='form-msg err';
-      msg.textContent=snap.data()?.status==='pending'?'Cadastro aguardando aprovação.':'Conta não encontrada.';
-      btn.disabled=false; return;
+    const result=await signInWithPopup(auth,googleProvider);
+    const user=result.user;
+    const snap=await getDoc(doc(db,'members',user.uid));
+
+    if(snap.exists()){
+      // já cadastrado — verifica aprovação
+      const data=snap.data();
+      if(data.status==='pending'){
+        await signOut(auth);
+        loginMsg.className='form-msg err';
+        loginMsg.textContent='Cadastro aguardando aprovação do admin.';
+        return;
+      }
+      if(data.status==='approved'){
+        loginMsg.className='form-msg ok';loginMsg.textContent='Bem-vindo!';
+        setTimeout(()=>closeModal('auth-modal'),700);
+        return;
+      }
     }
-    msg.className='form-msg ok'; msg.textContent='Bem-vindo!';
-    setTimeout(()=>closeModal('auth-modal'),700);
+    // novo usuário Google → abre setup
+    pendingGoogleUser=user;
+    closeModal('auth-modal');
+    document.getElementById('google-setup-modal').classList.add('open');
   }catch(e){
-    msg.className='form-msg err';
-    msg.textContent=(e.code==='auth/invalid-credential'||e.code==='auth/user-not-found')?'Nickname ou senha incorretos.':'Erro: '+e.message;
+    loginMsg.className='form-msg err';
+    loginMsg.textContent=e.code==='auth/popup-closed-by-user'?'Login cancelado.':'Erro: '+e.message;
   }
-  btn.disabled=false;
 };
 
-window.doLogout = async()=>{ await signOut(auth); };
+/* SETUP APÓS GOOGLE */
+window.submitGoogleSetup=async()=>{
+  const nick=document.getElementById('gsetup-nick').value.trim();
+  const role=document.getElementById('gsetup-role').value;
+  const msg=document.getElementById('gsetup-msg');
+  if(!nick||!role){msg.className='form-msg err';msg.textContent='Preencha todos os campos.';return;}
+  msg.className='form-msg';msg.textContent='Enviando...';
+  try{
+    const user=pendingGoogleUser||auth.currentUser;
+    // avatar: usa foto do Google como avatarUrl inicial
+    const googlePhoto=user.photoURL||'';
+    await setDoc(doc(db,'members',user.uid),{
+      nickname:nick,role,status:'pending',uid:user.uid,
+      loginMethod:'google',
+      googleEmail:user.email||'',
+      createdAt:Date.now(),lastSeen:Date.now(),
+      likedBy:[],builds:[],bio:'',favRealm:'',
+      avatarUrl:googlePhoto
+    });
+    await signOut(auth);
+    pendingGoogleUser=null;
+    msg.className='form-msg ok';msg.textContent='Cadastro enviado! Aguarde aprovação.';
+    setTimeout(()=>closeModal('google-setup-modal'),1200);
+  }catch(e){
+    msg.className='form-msg err';msg.textContent='Erro: '+e.message;
+  }
+};
 
-/* ── MEU PERFIL ── */
-window.openMyProfile = async()=>{
+window.doLogout=async()=>{ await signOut(auth); };
+
+/* MEU PERFIL */
+window.openMyProfile=async()=>{
   if(!currentUser||!currentUserData) return;
-  const d = currentUserData;
-  // preenche preview avatar
-  document.getElementById('my-avatar-preview').src = avatarUrl(d);
-  document.getElementById('profile-bio').value     = d.bio||'';
-  document.getElementById('profile-fav-realm').value = d.favRealm||'';
+  const d=currentUserData;
+  document.getElementById('my-avatar-preview').src=avatarUrl(d);
+  document.getElementById('profile-bio').value=d.bio||'';
+  document.getElementById('profile-fav-realm').value=d.favRealm||'';
   renderMyBuilds(d.builds||[]);
-  pendingAvatar = null;
+  pendingAvatar=null;
   document.getElementById('profile-msg').textContent='';
   document.getElementById('my-profile-modal').classList.add('open');
 };
 
-let myBuilds = [];
+let myBuilds=[];
 function renderMyBuilds(list){
-  myBuilds = [...list];
-  document.getElementById('my-builds-list').innerHTML = myBuilds.map((b,i)=>
+  myBuilds=[...list];
+  document.getElementById('my-builds-list').innerHTML=myBuilds.map((b,i)=>
     `<div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(0,207,255,0.03);border:1px solid var(--c-border);border-radius:5px;">
       <span style="flex:1;font-family:var(--font-title);font-size:.78rem;color:#c8f0dc;">${b}</span>
-      <button onclick="removeBuild(${i})" style="background:none;border:none;color:var(--c-danger);cursor:pointer;font-size:.9rem;">✕</button>
+      <button onclick="removeBuild(${i})" style="background:none;border:none;color:var(--c-danger);cursor:pointer;">✕</button>
     </div>`
   ).join('');
 }
-window.addBuild = ()=>{
+window.addBuild=()=>{
   const inp=document.getElementById('new-build-input');
   const val=inp.value.trim();
   if(!val||myBuilds.includes(val)) return;
-  myBuilds.push(val); renderMyBuilds(myBuilds); inp.value='';
+  myBuilds.push(val);renderMyBuilds(myBuilds);inp.value='';
 };
-window.removeBuild = i=>{ myBuilds.splice(i,1); renderMyBuilds(myBuilds); };
+window.removeBuild=i=>{myBuilds.splice(i,1);renderMyBuilds(myBuilds);};
 
-window.previewAvatar = e=>{
-  const file=e.target.files[0]; if(!file) return;
+window.previewAvatar=e=>{
+  const file=e.target.files[0];if(!file) return;
   pendingAvatar=file;
   const reader=new FileReader();
   reader.onload=ev=>document.getElementById('my-avatar-preview').src=ev.target.result;
   reader.readAsDataURL(file);
 };
 
-window.saveProfile = async()=>{
+window.saveProfile=async()=>{
   if(!currentUser) return;
   const msg=document.getElementById('profile-msg');
-  msg.className='form-msg'; msg.textContent='Salvando...';
+  msg.className='form-msg';msg.textContent='Salvando...';
   try{
-    let avatarUrl='';
+    let newAvatarUrl='';
     if(pendingAvatar){
       const storRef=ref(storage,`avatars/${currentUser.uid}`);
       await uploadBytes(storRef,pendingAvatar);
-      avatarUrl=await getDownloadURL(storRef);
+      newAvatarUrl=await getDownloadURL(storRef);
     }
-    const update={
-      bio: document.getElementById('profile-bio').value.trim(),
-      favRealm: document.getElementById('profile-fav-realm').value,
-      builds: myBuilds,
-      lastSeen: Date.now()
-    };
-    if(avatarUrl) update.avatarUrl=avatarUrl;
+    const update={bio:document.getElementById('profile-bio').value.trim(),favRealm:document.getElementById('profile-fav-realm').value,builds:myBuilds,lastSeen:Date.now()};
+    if(newAvatarUrl) update.avatarUrl=newAvatarUrl;
     await updateDoc(doc(db,'members',currentUser.uid),update);
-    // atualiza local
     const snap=await getDoc(doc(db,'members',currentUser.uid));
     currentUserData=snap.data();
-    msg.className='form-msg ok'; msg.textContent='Perfil salvo!';
+    msg.className='form-msg ok';msg.textContent='Perfil salvo!';
   }catch(e){
-    msg.className='form-msg err'; msg.textContent='Erro ao salvar: '+e.message;
+    msg.className='form-msg err';msg.textContent='Erro: '+e.message;
   }
 };
 
-/* ── VER PERFIL DE OUTRO MEMBRO ── */
-window.openViewProfile = async uid=>{
+/* VER PERFIL */
+window.openViewProfile=async uid=>{
   viewingUid=uid;
   const snap=await getDoc(doc(db,'members',uid));
   if(!snap.exists()) return;
   const m=snap.data();
-  document.getElementById('vp-avatar').src   = avatarUrl(m);
-  document.getElementById('vp-name').textContent  = m.nickname;
-  document.getElementById('vp-role').textContent  = m.role;
-  document.getElementById('vp-bio').textContent   = m.bio||'Sem bio ainda.';
-  document.getElementById('vp-days').textContent  = daysSince(m.createdAt);
-  const likes=(m.likedBy||[]).length;
-  document.getElementById('vp-likes').textContent = likes;
+  document.getElementById('vp-avatar').src=avatarUrl(m);
+  document.getElementById('vp-name').textContent=m.nickname;
+  document.getElementById('vp-role').textContent=m.role;
+  document.getElementById('vp-bio').textContent=m.bio||'Sem bio ainda.';
+  document.getElementById('vp-days').textContent=daysSince(m.createdAt);
+  document.getElementById('vp-likes').textContent=(m.likedBy||[]).length;
   document.getElementById('vp-builds-count').textContent=(m.builds||[]).length;
   document.getElementById('vp-lastseen').textContent='Visto: '+timeAgo(m.lastSeen||m.createdAt);
+  document.getElementById('vp-method').textContent=m.loginMethod==='google'?'🔑 Google':'🔑 Email';
 
-  // fav realm
   const favWrap=document.getElementById('vp-fav-realm-wrap');
-  if(m.favRealm){ favWrap.style.display='block'; document.getElementById('vp-fav-realm').textContent=m.favRealm; }
+  if(m.favRealm){favWrap.style.display='block';document.getElementById('vp-fav-realm').textContent=m.favRealm;}
   else favWrap.style.display='none';
 
-  // builds
   const buildsWrap=document.getElementById('vp-builds-wrap');
   const builds=m.builds||[];
   if(builds.length){
     buildsWrap.style.display='block';
-    document.getElementById('vp-builds').innerHTML=builds.map(b=>
-      `<div class="profile-build-item"><span class="profile-build-name">🏗️ ${b}</span></div>`
-    ).join('');
+    document.getElementById('vp-builds').innerHTML=builds.map(b=>`<div class="profile-build-item"><span class="profile-build-name">🏗️ ${b}</span></div>`).join('');
   } else buildsWrap.style.display='none';
 
-  // like button
   const likeBtn=document.getElementById('like-btn');
-  const likeTxt=document.getElementById('like-btn-text');
   const myUid=currentUser?.uid;
   const alreadyLiked=myUid&&(m.likedBy||[]).includes(myUid);
   likeBtn.className='like-btn'+(alreadyLiked?' liked':'');
   likeBtn.querySelector('.heart').textContent=alreadyLiked?'♥':'♡';
-  likeTxt.textContent=alreadyLiked?'Curtido':'Curtir';
-  // não pode curtir a si mesmo
-  if(uid===myUid||!currentUser){ likeBtn.style.display='none'; } else likeBtn.style.display='flex';
+  document.getElementById('like-btn-text').textContent=alreadyLiked?'Curtido':'Curtir';
+  likeBtn.style.display=(uid===myUid||!currentUser)?'none':'flex';
 
   document.getElementById('view-profile-modal').classList.add('open');
 };
 
-window.toggleLike = async()=>{
+window.toggleLike=async()=>{
   if(!currentUser||!viewingUid||viewingUid===currentUser.uid) return;
-  const ref2=doc(db,'members',viewingUid);
-  const snap=await getDoc(ref2);
+  const r=doc(db,'members',viewingUid);
+  const snap=await getDoc(r);
   const liked=(snap.data().likedBy||[]).includes(currentUser.uid);
-  await updateDoc(ref2,{ likedBy: liked ? arrayRemove(currentUser.uid) : arrayUnion(currentUser.uid) });
-  // re-abre o perfil atualizado
+  await updateDoc(r,{likedBy:liked?arrayRemove(currentUser.uid):arrayUnion(currentUser.uid)});
   openViewProfile(viewingUid);
 };
 
-/* ── ADMIN ── */
-window.openAdmin = ()=>{
+/* ADMIN */
+window.openAdmin=()=>{
   document.getElementById('admin-panel').classList.add('open');
   document.getElementById('admin-login-wrap').style.display='block';
   document.getElementById('admin-content').style.display='none';
   document.getElementById('admin-pass-input').value='';
   document.getElementById('admin-login-msg').textContent='';
 };
-window.closeAdmin = ()=>document.getElementById('admin-panel').classList.remove('open');
-
-window.doAdminLogin = ()=>{
+window.closeAdmin=()=>document.getElementById('admin-panel').classList.remove('open');
+window.doAdminLogin=()=>{
   if(document.getElementById('admin-pass-input').value===ADMIN_PASSWORD){
     document.getElementById('admin-login-wrap').style.display='none';
     document.getElementById('admin-content').style.display='block';
-    loadPending(); loadAdminMembers();
-  } else {
-    document.getElementById('admin-login-msg').textContent='Senha incorreta.';
-  }
+    loadPending();loadAdminMembers();
+  } else document.getElementById('admin-login-msg').textContent='Senha incorreta.';
 };
-
-window.switchAdminTab = tab=>{
+window.switchAdminTab=tab=>{
   document.querySelectorAll('.admin-tab').forEach((t,i)=>t.classList.toggle('active',tab==='pending'?i===0:i===1));
   document.getElementById('admin-pane-pending').classList.toggle('active',tab==='pending');
   document.getElementById('admin-pane-members').classList.toggle('active',tab==='members');
 };
-
 async function loadPending(){
   const list=document.getElementById('pending-list');
   list.innerHTML='<div class="pending-empty">Carregando...</div>';
   const snap=await getDocs(query(collection(db,'members'),where('status','==','pending')));
-  if(snap.empty){list.innerHTML='<div class="pending-empty">Nenhum cadastro pendente.</div>';return;}
+  if(snap.empty){list.innerHTML='<div class="pending-empty">Nenhum pendente.</div>';return;}
   list.innerHTML=snap.docs.map(d=>{
     const m=d.data();
+    const badge=m.loginMethod==='google'?'<span style="font-size:.55rem;color:#4285F4;margin-left:4px;">Google</span>':'';
     return `<div class="pending-item" id="pi-${d.id}">
-      <div class="pending-name">${m.nickname}</div>
+      <div class="pending-name">${m.nickname}${badge}</div>
       <div class="pending-role">${m.role}</div>
       <button class="pending-btn btn-approve" onclick="approveUser('${d.id}')">Aprovar</button>
       <button class="pending-btn btn-reject"  onclick="rejectUser('${d.id}')">Rejeitar</button>
     </div>`;
   }).join('');
 }
-
 async function loadAdminMembers(){
   const list=document.getElementById('admin-members-list');
   list.innerHTML='<div class="pending-empty">Carregando...</div>';
   const snap=await getDocs(query(collection(db,'members'),where('status','==','approved')));
-  if(snap.empty){list.innerHTML='<div class="pending-empty">Nenhum membro aprovado.</div>';return;}
+  if(snap.empty){list.innerHTML='<div class="pending-empty">Nenhum aprovado.</div>';return;}
   const roles=['Fundador','Prefeito','Membro','Construtor','Explorador'];
   list.innerHTML=snap.docs.map(d=>{
     const m=d.data();
@@ -968,37 +1040,32 @@ async function loadAdminMembers(){
     </div>`;
   }).join('');
 }
-
-window.approveUser = async uid=>{
+window.approveUser=async uid=>{
   await updateDoc(doc(db,'members',uid),{status:'approved'});
   document.getElementById('pi-'+uid)?.remove();
-  if(!document.querySelector('.pending-item')) document.getElementById('pending-list').innerHTML='<div class="pending-empty">Nenhum cadastro pendente.</div>';
+  if(!document.querySelector('.pending-item')) document.getElementById('pending-list').innerHTML='<div class="pending-empty">Nenhum pendente.</div>';
 };
-window.rejectUser = async uid=>{
+window.rejectUser=async uid=>{
   await deleteDoc(doc(db,'members',uid));
   document.getElementById('pi-'+uid)?.remove();
-  if(!document.querySelector('.pending-item')) document.getElementById('pending-list').innerHTML='<div class="pending-empty">Nenhum cadastro pendente.</div>';
+  if(!document.querySelector('.pending-item')) document.getElementById('pending-list').innerHTML='<div class="pending-empty">Nenhum pendente.</div>';
 };
-window.updateRole = async uid=>{
-  const role=document.getElementById('role-'+uid).value;
-  await updateDoc(doc(db,'members',uid),{role});
-};
-window.kickMember = async uid=>{
+window.updateRole=async uid=>{ await updateDoc(doc(db,'members',uid),{role:document.getElementById('role-'+uid).value}); };
+window.kickMember=async uid=>{
   if(!confirm('Remover este membro?')) return;
   await deleteDoc(doc(db,'members',uid));
   document.getElementById('ami-'+uid)?.remove();
 };
 
-/* Atalho: triple-click no footer */
+/* ATALHO ADMIN */
 let cc=0,ct;
 document.querySelector('footer').addEventListener('click',()=>{
-  cc++; clearTimeout(ct); ct=setTimeout(()=>cc=0,600);
+  cc++;clearTimeout(ct);ct=setTimeout(()=>cc=0,600);
   if(cc>=3){cc=0;openAdmin();}
 });
 </script>
 
 <script>
-/* TIMER */
 const TARGET=new Date('2026-06-06T14:00:00');
 function pad(n){return String(n).padStart(2,'0');}
 function updateTimer(){
@@ -1011,7 +1078,6 @@ function updateTimer(){
 }
 updateTimer();setInterval(updateTimer,1000);
 
-/* PARTÍCULAS */
 const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
 function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
 resize();window.addEventListener('resize',resize);
@@ -1025,11 +1091,9 @@ class Particle{
 const parts=Array.from({length:80},()=>new Particle());
 (function loop(){ctx.clearRect(0,0,canvas.width,canvas.height);parts.forEach(p=>{p.update();p.draw();});requestAnimationFrame(loop);})();
 
-/* GRADE */
 const hLines=document.querySelectorAll('.hl'),baseY=[20,55,100,158,230,320,430];let offset=0;
 (function animFloor(){offset=(offset+.35)%500;hLines.forEach((l,i)=>{const y=((baseY[i]+offset*(i+1)*.25)%500);l.setAttribute('y1',y);l.setAttribute('y2',y);});requestAnimationFrame(animFloor);})();
 
-/* REVEAL */
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.1});
 document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*.08+'s';obs.observe(el);});
 </script>
