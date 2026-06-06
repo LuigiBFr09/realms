@@ -193,13 +193,9 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
 .btn-google:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.25);}
 .btn-google svg{width:18px;height:18px;flex-shrink:0;}
 
-/* AVATAR UPLOAD */
-.avatar-upload-wrap{display:flex;align-items:center;gap:16px;margin-bottom:20px;}
-.avatar-preview{width:72px;height:72px;border-radius:8px;overflow:hidden;border:2px solid var(--c-border);flex-shrink:0;}
+/* AVATAR PREVIEW */
+.avatar-preview{width:72px;height:72px;border-radius:8px;overflow:hidden;border:2px solid var(--c-border);margin-bottom:12px;}
 .avatar-preview img{width:100%;height:100%;object-fit:cover;display:block;}
-.avatar-upload-btn{font-family:var(--font-title);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;padding:6px 14px;border:1px solid var(--c-border);border-radius:3px;color:var(--c-accent);background:rgba(0,207,255,0.05);cursor:pointer;transition:border-color .2s;}
-.avatar-upload-btn:hover{border-color:var(--c-accent);}
-#avatar-file-input{display:none;}
 
 /* PERFIL */
 .profile-modal{max-width:540px;}
@@ -405,14 +401,10 @@ footer{position:relative;z-index:1;border-top:1px solid var(--c-border);padding:
     <button class="modal-close" onclick="closeModal('my-profile-modal')">✕</button>
     <div class="modal-title">Meu Perfil</div>
     <div class="modal-sub">Editar informações</div>
-    <div class="avatar-upload-wrap">
+    <div style="margin-bottom:20px;">
+      <div style="font-family:var(--font-title);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--c-muted);margin-bottom:8px;">Avatar</div>
       <div class="avatar-preview"><img id="my-avatar-preview" src="" alt="Avatar"></div>
-      <div>
-        <div style="font-family:var(--font-title);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--c-muted);margin-bottom:8px;">Avatar</div>
-        <label class="avatar-upload-btn" for="avatar-file-input">📁 Upload foto</label>
-        <input type="file" id="avatar-file-input" accept="image/*" onchange="previewAvatar(event)">
-        <div style="font-family:var(--font-title);font-size:.52rem;color:var(--c-muted);margin-top:6px;">ou usa skin do MC automaticamente</div>
-      </div>
+      <div style="font-family:var(--font-title);font-size:.54rem;color:var(--c-muted);">Skin automática pelo nickname do Minecraft</div>
     </div>
     <div class="form-group"><label class="form-label">Bio curta</label><textarea class="form-textarea" id="profile-bio" placeholder="Uma frase sobre você no realm..." maxlength="120"></textarea></div>
     <div class="form-group"><label class="form-label">Realm favorito</label>
@@ -642,8 +634,6 @@ import { getFirestore, collection, doc, setDoc,
          getDoc, getDocs, updateDoc, deleteDoc,
          onSnapshot, query, where,
          arrayUnion, arrayRemove }                from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
-import { getStorage, ref, uploadBytes,
-         getDownloadURL }                         from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js';
 
 const firebaseConfig = {
   apiKey:"AIzaSyAKkW0GHYrzeKm1I9MTeyBuLPwRO554XH4",
@@ -658,13 +648,11 @@ const ADMIN_PASSWORD = "admin2026realm"; // ← troque antes de publicar
 const app      = initializeApp(firebaseConfig);
 const auth     = getAuth(app);
 const db       = getFirestore(app);
-const storage  = getStorage(app);
 const googleProvider = new GoogleAuthProvider();
 
 let currentUser     = null;
 let currentUserData = null;
 let viewingUid      = null;
-let pendingAvatar   = null;
 let pendingGoogleUser = null; // usuário Google aguardando setup
 
 /* HELPERS */
@@ -886,7 +874,6 @@ window.openMyProfile=async()=>{
   document.getElementById('profile-bio').value=d.bio||'';
   document.getElementById('profile-fav-realm').value=d.favRealm||'';
   renderMyBuilds(d.builds||[]);
-  pendingAvatar=null;
   document.getElementById('profile-msg').textContent='';
   document.getElementById('my-profile-modal').classList.add('open');
 };
@@ -909,27 +896,12 @@ window.addBuild=()=>{
 };
 window.removeBuild=i=>{myBuilds.splice(i,1);renderMyBuilds(myBuilds);};
 
-window.previewAvatar=e=>{
-  const file=e.target.files[0];if(!file) return;
-  pendingAvatar=file;
-  const reader=new FileReader();
-  reader.onload=ev=>document.getElementById('my-avatar-preview').src=ev.target.result;
-  reader.readAsDataURL(file);
-};
-
 window.saveProfile=async()=>{
   if(!currentUser) return;
   const msg=document.getElementById('profile-msg');
   msg.className='form-msg';msg.textContent='Salvando...';
   try{
-    let newAvatarUrl='';
-    if(pendingAvatar){
-      const storRef=ref(storage,`avatars/${currentUser.uid}`);
-      await uploadBytes(storRef,pendingAvatar);
-      newAvatarUrl=await getDownloadURL(storRef);
-    }
     const update={bio:document.getElementById('profile-bio').value.trim(),favRealm:document.getElementById('profile-fav-realm').value,builds:myBuilds,lastSeen:Date.now()};
-    if(newAvatarUrl) update.avatarUrl=newAvatarUrl;
     await updateDoc(doc(db,'members',currentUser.uid),update);
     const snap=await getDoc(doc(db,'members',currentUser.uid));
     currentUserData=snap.data();
